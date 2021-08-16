@@ -2,7 +2,11 @@
 #Implement using dictionary => then functions:
 #	-Add Employee
 #	-Delete Employee
-#	-Search Employee by name
+#	-Search Employee(updated)
+#		-search by name(new)- August 16
+#		-search by age(new)August 16
+#		-search by salary(new)August 16
+#		-search by gender(new)August 16
 #	-Change Employee Data
 #		=>Change name
 #		=>change age
@@ -67,8 +71,24 @@ def delete_employee():
 		print("Enter valid Emp_ID")
 	else:
 		del employee[emp_id]
-		
-def search_employee():
+def search_employee_options():
+	search_menu()
+	ch = input("Enter the choice")
+	if ch == "a":
+		name = input("Enter the name to be search")
+		print(list(filter(lambda a: a["emp_name"] == name,employee.values())))
+	elif ch == "b":
+		age = int(input("Enter the name to be search"))
+		print(list(filter(lambda a: a["emp_age"] == age,employee.values())))
+	elif ch == "c":
+		gender = input("Enter the name to be search")
+		print(list(filter(lambda a: a["emp_gender"] == gender,employee.values())))
+	elif ch == "d":
+		salary = input("Enter the name to be search")
+		print(list(filter(lambda a: a["emp_sal"] == salary,employee.values())))
+	else:	
+		print("Invalid choice")
+def search_employee():# Currently not using
 	print("Search employee by name")
 	name = input("Enter the name to be search")
 	flag = False
@@ -79,7 +99,13 @@ def search_employee():
 		print(f"{name} is found")
 	else:
 		print(f"{name} is not found")	
-		
+def search_menu():
+	print("Change employee data")
+	print("\ta. search by Name")
+	print("\tb. search by age")
+	print("\tc. search by gender")
+	print("\td. search by salary")
+	print("\te. Exit")		
 def update_menu():
 	print("Change employee data")
 	print("\ta. Change Name")
@@ -283,7 +309,7 @@ while True :
 	elif ch == 5:
 		delete_employee()
 	elif ch == 6:
-		search_employee()	
+		search_employee_options()	
 	elif ch == 7:
 		update_empoyee()
 	elif ch == 8:
