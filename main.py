@@ -28,7 +28,7 @@ def display_employee():
 		pass
 	else:
 		for i in employees:
-			print(f"{i.emp_id} | {i.emp_name} | {i.emp_age} | {i.emp_gender} | {i.emp_sal}")
+			i.display()
 
 def delete_employee():
 	emp_id = int(input("Enter the id : "))
